@@ -25,3 +25,7 @@ proguard/
 
 # Log Files
 *.log
+
+# Phonegap generated directories and files
+platforms/
+plugins/
