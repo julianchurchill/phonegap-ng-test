@@ -17,8 +17,13 @@
 - yo mobileangularui
  - Scaffolds the app by installing a necessary dependencies and a walking skeleton
 - gulp build
+ - Commented out '@import "font-awesome/less/spinning";' from bower_components/mobile-angular-ui/src/less/mobile-angular-ui.less to fix error. NOTE: This file is in bower_components which is in .gitignore, therefore the change is not under source control
  - Builds the app using 'gulp' as the task manager
 - phonegap run android
+
+## Notes
+
+- Android app can be 'cleaned' by 'cd platforms/android/cordova ; ./clean'
 
 ## References
 
