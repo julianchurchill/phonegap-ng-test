@@ -23,7 +23,7 @@
 
 ## Notes
 
-- Android app can be 'cleaned' by 'cd platforms/android/cordova ; ./clean'
+- Android app can be 'cleaned' by removing the platforms/android directory.
  - A 'gulp build' will be required after this to recreate the app
 
 ## References
