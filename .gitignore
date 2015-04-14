@@ -93,7 +93,7 @@ local.properties
 # PDT-specific
 .buildpath
 
-# sbteclipse plugin 
+# sbteclipse plugin
 .target
 
 # TeXlipse plugin
@@ -137,3 +137,7 @@ bower_components
 
 # Phonegap generated files and directories
 platforms
+
+# After scaffolding with yo mobileangularui the www directory contains only built files
+# and shouldn't be edited directly
+www
