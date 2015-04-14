@@ -2,6 +2,8 @@
 
 ## What I Did
 
+### Created skeleton phonegap app
+
 - sudo apt-get install node-js
 - cd ~/bin && ln -s /usr/bin/nodejs node
 - sudo apt-get install npm
@@ -12,6 +14,8 @@
 - phonegap run android
  - To see hello world android app execute in emulator
 
+### Scaffolded mobileangularui app within phonegap app
+
 - npm install -g bower yo gulp generator-mobileangularui
  - Installed bower for package management (like npm), yeoman ('yo'), gulp for build/task management and mobileangularui generator for yeoman
 - yo mobileangularui
@@ -20,6 +24,11 @@
  - Commented out '@import "font-awesome/less/spinning";' from bower_components/mobile-angular-ui/src/less/mobile-angular-ui.less to fix error. NOTE: This file is in bower_components which is in .gitignore, therefore the change is not under source control
  - Builds the app using 'gulp' as the task manager
 - phonegap run android
+
+### Followed Weather app demo
+
+- Added code as described in http://mobileangularui.com/blog/your-first-phonegap-app-with-mobile-angular-ui/
+- phonegap plugin add org.apache.cordova.geolocation
 
 ## Notes
 
