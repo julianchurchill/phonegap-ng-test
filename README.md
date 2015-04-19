@@ -46,6 +46,10 @@
  - Install the command line shortcut so you can type 'karma' instead of './node_modules/karma/bin/karma'
 - karma init my.conf.js
 
+### Run karma as test runner
+
+- karma start my.conf.js
+
 ## References
 
 - Phonegap + mobile angularUi - http://mobileangularui.com/blog/your-first-phonegap-app-with-mobile-angular-ui/
