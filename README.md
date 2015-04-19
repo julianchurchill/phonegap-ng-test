@@ -1,5 +1,11 @@
 # phonegap-ng-test
 
+## Notes
+
+- Android app can be 'cleaned' by removing the platforms/android directory.
+ - A 'gulp build' will be required after this to recreate the app
+- Any npm packages installed with 'npm install -g' are installed 'globally', meaning _not_ in the git repo. Therefore all '-g' npm installs will have to be done once when you download the repo.
+
 ## What I Did
 
 ### Created skeleton phonegap app
@@ -38,11 +44,6 @@
  - plugins for karma to use Chrome and the unit test framework Jasmine
 - npm install -g karma-cli
  - Install the command line shortcut so you can type 'karma' instead of './node_modules/karma/bin/karma'
-
-## Notes
-
-- Android app can be 'cleaned' by removing the platforms/android directory.
- - A 'gulp build' will be required after this to recreate the app
 
 ## References
 
