@@ -44,6 +44,7 @@
  - plugins for karma to use Chrome and the unit test framework Jasmine
 - npm install -g karma-cli
  - Install the command line shortcut so you can type 'karma' instead of './node_modules/karma/bin/karma'
+- karma init my.conf.js
 
 ## References
 
