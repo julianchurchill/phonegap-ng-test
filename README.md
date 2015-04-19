@@ -30,6 +30,15 @@
 - Added code as described in http://mobileangularui.com/blog/your-first-phonegap-app-with-mobile-angular-ui/
 - phonegap plugin add org.apache.cordova.geolocation
 
+### Install karma as test runner
+
+- npm install karma --save-dev
+ - --save-dev will save these npm packages as devDependencies in package.json, allowing users to simply run 'npm install'. This is not necessary if the node modules are checked into source control.
+- npm install karma-jasmine karma-chrome-launcher --save-dev
+ - plugins for karma to use Chrome and the unit test framework Jasmine
+- npm install -g karma-cli
+ - Install the command line shortcut so you can type 'karma' instead of './node_modules/karma/bin/karma'
+
 ## Notes
 
 - Android app can be 'cleaned' by removing the platforms/android directory.
