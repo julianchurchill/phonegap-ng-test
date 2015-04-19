@@ -5,6 +5,8 @@
 - Android app can be 'cleaned' by removing the platforms/android directory.
  - A 'gulp build' will be required after this to recreate the app
 - Any npm packages installed with 'npm install -g' are installed 'globally', meaning _not_ in the git repo. Therefore all '-g' npm installs will have to be done once when you download the repo.
+- Make sure you increase the number of watchable files on a Linux file system, this is documented below in the install karma section
+ - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 ## What I Did
 
@@ -40,11 +42,14 @@
 
 - npm install karma --save-dev
  - --save-dev will save these npm packages as devDependencies in package.json, allowing users to simply run 'npm install'. This is not necessary if the node modules are checked into source control.
-- npm install karma-jasmine karma-phantomjs-launcher karma-chrome-launcher --save-dev
- - plugins for karma to use Chrome, PhantomJS and the unit test framework Jasmine
+- npm install karma-jasmine karma-phantomjs-launcher karma-chrome-launcher karma-browserify --save-dev
+ - plugins for karma to use the unit test framework Jasmine, Chrome, PhantomJS and browserify
 - npm install -g karma-cli
  - Install the command line shortcut so you can type 'karma' instead of './node_modules/karma/bin/karma'
 - karma init my.conf.js
+- echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+ - Increases the maximum number of files Linux can watch, if you have DropBox running this can easily get reached and karma fails with "ERROR [karma]: { [Error: watch ENOSPC] code: 'ENOSPC', errno: 'ENOSPC', syscall: 'watch' }"
+
 
 ### Run karma as test runner
 
