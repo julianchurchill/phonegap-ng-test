@@ -8,7 +8,7 @@ var config = {
   dest: 'www',
   cordova: true,
   minify_images: true,
-  
+
   vendor: {
     js: [
       './bower_components/angular/angular.js',
@@ -69,7 +69,8 @@ var gulp           = require('gulp'),
     ngFilesort     = require('gulp-angular-filesort'),
     streamqueue    = require('streamqueue'),
     rename         = require('gulp-rename'),
-    path           = require('path');
+    path           = require('path'),
+    karma          = require('gulp-karma');
 
 
 /*================================================
@@ -131,7 +132,7 @@ gulp.task('livereload', function () {
 
 gulp.task('images', function () {
   var stream = gulp.src('src/images/**/*');
-  
+
   if (config.minify_images) {
     stream = stream.pipe(imagemin({
         progressive: true,
@@ -139,7 +140,7 @@ gulp.task('images', function () {
         use: [pngcrush()]
     }));
   }
-  
+
   return stream.pipe(gulp.dest(path.join(config.dest, 'images')));
 });
 
@@ -184,7 +185,7 @@ gulp.task('less', function () {
     .pipe(mobilizer('app.css', {
       'app.css': {
         hover: 'exclude',
-        screens: ['0px']      
+        screens: ['0px']
       },
       'hover.css': {
         hover: 'only',
@@ -225,7 +226,7 @@ gulp.task('js', function() {
 
 gulp.task('watch', function () {
   if (typeof config.server === 'object') {
-    gulp.watch([config.dest + '/**/*'], ['livereload']);  
+    gulp.watch([config.dest + '/**/*'], ['livereload']);
   }
   gulp.watch(['./src/html/**/*'], ['html']);
   gulp.watch(['./src/less/**/*'], ['less']);
@@ -247,6 +248,35 @@ gulp.task('weinre', function() {
   }
 });
 
+
+/*=========================================
+=            Unit testing Task            =
+===========================================*/
+
+var testFiles = [
+  'test/**/*.js'
+];
+
+gulp.task('unittest', ['build'], function() {
+  // Be sure to return the stream
+  return gulp.src(testFiles)
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'run'
+    }))
+    .on('error', function(err) {
+      // Make sure failed tests cause gulp to exit non-zero
+      throw err;
+    });
+});
+
+gulp.task('unittest-watch', ['build'], function() {
+  gulp.src(testFiles)
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'watch'
+    }));
+});
 
 /*======================================
 =            Build Sequence            =
@@ -274,6 +304,6 @@ gulp.task('default', function(done){
   }
 
   tasks.push('watch');
-  
+
   seq('build', tasks, done);
 });

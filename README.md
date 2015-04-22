@@ -46,14 +46,22 @@
  - plugins for karma to use the unit test framework Jasmine, Chrome, PhantomJS and browserify
 - npm install -g karma-cli
  - Install the command line shortcut so you can type 'karma' instead of './node_modules/karma/bin/karma'
-- karma init my.conf.js
+- karma init karma.conf.js
 - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
  - Increases the maximum number of files Linux can watch, if you have DropBox running this can easily get reached and karma fails with "ERROR [karma]: { [Error: watch ENOSPC] code: 'ENOSPC', errno: 'ENOSPC', syscall: 'watch' }"
 
-
 ### Run karma as test runner
 
-- karma start my.conf.js
+- karma start karma.conf.js
+
+### Integrated karma into gulp
+
+- npm install --save-dev gulp-karma
+- Added 'unittest' and 'unittest-watch' tasks to gulpfile.js, both depend on 'build'
+
+## TODO
+
+- Example test in Jasmine against some angularjs code
 
 ## References
 
